@@ -433,7 +433,7 @@ public class PersistenceManagerImpl implements PersistenceManager, ItemRegistryC
     }
 
     @Override
-    public void stateUpdated(Item item, State state) {
+    public void stateUpdated(Item item, State oldState, State newState) {
         handleStateEvent(item, false);
     }
 

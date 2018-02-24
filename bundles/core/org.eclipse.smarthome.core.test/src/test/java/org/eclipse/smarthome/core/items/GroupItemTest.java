@@ -321,7 +321,7 @@ public class GroupItemTest extends JavaOSGiTest {
         // We expect ON here
         State getStateAsState = rootGroupItem.getStateAs(OnOffType.class);
 
-        rootGroupItem.stateUpdated(member1, UnDefType.NULL); // recalculate the state
+        rootGroupItem.stateUpdated(member1, UnDefType.NULL, UnDefType.NULL); // recalculate the state
         State stateUpdatedState = rootGroupItem.getState();
 
         assertThat(getStateAsState, is(OnOffType.ON));
@@ -725,7 +725,7 @@ public class GroupItemTest extends JavaOSGiTest {
 
         assertThat(state, is(new QuantityType<Temperature>("23 °C")));
 
-        groupItem.stateUpdated(celsius, UnDefType.NULL);
+        groupItem.stateUpdated(celsius, UnDefType.NULL, UnDefType.NULL);
         assertThat(groupItem.getState(), is(new QuantityType<Temperature>("23 °C")));
     }
 

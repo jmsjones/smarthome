@@ -286,7 +286,7 @@ public class WebAppServlet extends BaseServlet {
         }
 
         @Override
-        public void stateUpdated(Item item, State state) {
+        public void stateUpdated(Item item, State oldState, State newState) {
             if (item instanceof GroupItem) {
                 changed = true;
             }

@@ -206,10 +206,10 @@ public class RuleEngineImpl implements ItemRegistryChangeListener, StateChangeLi
     }
 
     @Override
-    public void stateUpdated(Item item, State state) {
+    public void stateUpdated(Item item, State oldState, State newState) {
         if (!starting && triggerManager != null) {
-            Iterable<Rule> rules = triggerManager.getRules(UPDATE, item, state);
-            executeRules(rules, item);
+            Iterable<Rule> rules = triggerManager.getRules(UPDATE, item, oldState, newState);
+            executeRules(rules, item, oldState);
         }
     }
 

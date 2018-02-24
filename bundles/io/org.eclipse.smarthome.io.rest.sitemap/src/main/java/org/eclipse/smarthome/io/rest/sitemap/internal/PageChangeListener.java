@@ -169,7 +169,7 @@ public class PageChangeListener implements StateChangeListener {
     }
 
     @Override
-    public void stateUpdated(Item item, State state) {
+    public void stateUpdated(Item item, State oldState, State newState) {
         // For group item only, send an event each time the event state is updated.
         // It allows updating the group label while the group state is unchanged,
         // for example the count in label for Group:Switch:OR

@@ -365,15 +365,15 @@ public class GroupItem extends GenericItem implements StateChangeListener {
     }
 
     @Override
-    public void stateUpdated(Item item, State state) {
-        State oldState = this.state;
+    public void stateUpdated(Item item, State oldState, State newState) {
+        State originalState = this.state;
         if (function != null && baseItem != null) {
             State calculatedState = function.calculate(getStateMembers(getMembers()));
             calculatedState = itemStateConverter.convertToAcceptedState(calculatedState, baseItem);
             setState(calculatedState);
         }
-        if (!oldState.equals(this.state)) {
-            sendGroupStateChangedEvent(item.getName(), this.state, oldState);
+        if (!originalState.equals(this.state)) {
+            sendGroupStateChangedEvent(item.getName(), this.state, originalState);
         }
     }
 

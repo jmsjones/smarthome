@@ -701,8 +701,8 @@ public class SitemapResource implements RESTResource, SitemapSubscriptionCallbac
         }
 
         @Override
-        public void stateUpdated(Item item, State state) {
-            // ignore if the state did not change
+        public void stateUpdated(Item item, State oldState, State newState) {
+            // ignore state updates, only observe changes (above)
         }
     }
 

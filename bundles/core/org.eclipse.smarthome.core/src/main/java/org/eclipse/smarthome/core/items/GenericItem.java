@@ -247,7 +247,7 @@ public abstract class GenericItem implements ActiveItem {
                 @Override
                 public void run() {
                     try {
-                        listener.stateUpdated(GenericItem.this, newState);
+                        listener.stateUpdated(GenericItem.this, oldState, newState);
                         if (newState != null && !newState.equals(oldState)) {
                             listener.stateChanged(GenericItem.this, oldState, newState);
                         }

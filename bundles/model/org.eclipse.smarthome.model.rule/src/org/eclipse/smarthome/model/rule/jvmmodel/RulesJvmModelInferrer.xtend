@@ -147,7 +147,7 @@ class RulesJvmModelInferrer extends ScriptJvmModelInferrer {
                         val commandTypeRef = ruleModel.newTypeRef(Command)
                         parameters += rule.toParameter(VAR_RECEIVED_COMMAND, commandTypeRef)
                     }
-                    if (containsStateChangeTrigger(rule)) {
+                    if ((containsStateChangeTrigger(rule)) || (containsStateUpdateTrigger(rule))) {
                         val stateTypeRef = ruleModel.newTypeRef(State)
                         parameters += rule.toParameter(VAR_PREVIOUS_STATE, stateTypeRef)
                     }
